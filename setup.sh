@@ -25,6 +25,10 @@ sudo apt install htop
 echo "Install sensors"
 sudo apt install lm-sensors -y
 
+echo "Install guake"
+sudo apt install guake
+
 # Download and install sublime-text
+echo "Install sublime"
 curl -o ~/Downloads/sublime-install.deb https://www.sublimetext.com/download_thanks?target=x64-deb
 sudo dpkg --install ~/Downloads/sublime-install.deb
