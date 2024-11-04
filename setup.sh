@@ -37,7 +37,10 @@ echo 'deb [signed-by=/usr/share/keyrings/sublimehq.gpg] https://download.sublime
 # Install sublime text
 sudo apt update
 sudo apt install sublime-text
-# TODO: setup the color scheme and Typescript and Python packages using cli
+# Setup the color scheme
+curl -o ~/.config/sublime-text/Packages/User/Preferences.sublime-settings https://raw.githubusercontent.com/kdkocev/pimpmydrive/master/Preferences.sublime-settings
+# Setup typescript package that I like
+git clone --depth 1 https://github.com/Microsoft/TypeScript-Sublime-Plugin.git TypeScript
 
 # Install google chrome
 echo "Install Google Chrome"
@@ -75,25 +78,17 @@ sudo gpasswd -a $USER docker
 su - $USER
 sudo service docker restart
 
-echo "Add alias dock"
-echo 'alias dock="docker compose run django"' >> ~/.zshrc
-echo "Add alias sail"
-echo 'alias sail="./vendor/bin/sail"' >> ~/.zshrc
-
 # Add tmux
 echo "Install and configure tmux"
 sudo apt install tmux -y
-echo "set -g base-index 1" >> ~/.tmux.conf
-echo "set -g escape-time 20" >> ~/.tmux.conf
-echo "set -g mouse on" >> ~/.tmux.conf
-echo "set -g mode-keys vi" >> ~/.tmux.conf
-echo "set -s set-clipboard off" >> ~/.tmux.conf
-echo 'bind key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -selection clipboard -i"' >> ~/.tmux.conf
-echo 'set -g default-terminal "screen-256color"' >> ~/.tmux.conf
-echo 'set -g status-bg "#333333"' >> ~/.tmux.conf
-echo "set -g status -fg white" >> ~/.tmux.conf
+# Config
+curl -o ~/.tmux.config https://raw.githubusercontent.com/kdkocev/pimpmydrive/master/.tmux.config
 
 # Install jump
 echo "Install jump"
 sudo snap install jump
-echo 'eval "$(jump shell)"' >> ~/.zshrc
+# echo 'eval "$(jump shell)"' >> ~/.zshrc # this is set by getting the .zshrc directly
+
+# Get .zshrc
+echo "Copying .zshrc"
+curl -o ~/.zshrc https://raw.githubusercontent.com/kdkocev/pimpmydrive/master/.zshrc
