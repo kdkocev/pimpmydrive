@@ -79,3 +79,21 @@ echo "Add alias dock"
 echo 'alias dock="docker compose run django"' >> ~/.zshrc
 echo "Add alias sail"
 echo 'alias sail="./vendor/bin/sail"' >> ~/.zshrc
+
+# Add tmux
+echo "Install and configure tmux"
+sudo apt install tmux -y
+echo "set -g base-index 1" >> ~/.tmux.conf
+echo "set -g escape-time 20" >> ~/.tmux.conf
+echo "set -g mouse on" >> ~/.tmux.conf
+echo "set -g mode-keys vi" >> ~/.tmux.conf
+echo "set -s set-clipboard off" >> ~/.tmux.conf
+echo 'bind key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -selection clipboard -i"' >> ~/.tmux.conf
+echo 'set -g default-terminal "screen-256color"' >> ~/.tmux.conf
+echo 'set -g status-bg "#333333"' >> ~/.tmux.conf
+echo "set -g status -fg white" >> ~/.tmux.conf
+
+# Install jump
+echo "Install jump"
+sudo snap install jump
+echo 'eval "$(jump shell)"' >> ~/.zshrc
