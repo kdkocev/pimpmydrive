@@ -1,0 +1,10 @@
+{
+	"theme": "Default Dark.sublime-theme",
+	"color_scheme": "Monokai.sublime-color-scheme",
+	"ignored_packages": ["Vintage"],
+	"vintage_start_in_command_mode": true,
+	"folder_exclude_patterns": ["node_modules", "vendor", "dist"],
+	"font_size": 19,
+	"word_wrap": false,
+	"index_files": true,
+}
